@@ -31,3 +31,18 @@ testPromise("John", 1500).then((result) => {
 }).catch((err) => {
     console.log(err);
 })
+
+data = [
+    { name: "John", time: 1500 },
+    { name: "Ed", time: 2000 },
+    { name: "Jane", time: 1500 }
+]
+
+const testAsyncAwait = async () => {
+    for(let i= 0; i < data.length; i++){
+        const result = await testPromise(data[i].name, data[i].time)
+        console.log(result);
+    }
+}
+
+testAsyncAwait()
